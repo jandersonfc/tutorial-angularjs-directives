@@ -1,0 +1,20 @@
+<div ng-repeat="user in users">
+	
+	<p>
+		<h2 ng-hide="user.editMode">{{user.name}}</h2>
+		<input ng-show="user.editMode" ng-model="user.name"/>
+	</p>
+
+	<p>
+		<span ng-hide="user.editMode">Twitter: {{user.twitter}}</span>
+		<input ng-show="user.editMode" ng-model="user.twitter"/>
+	</p>
+
+	<p>
+		<span ng-hide="user.editMode">website: <a href="{{user.website}}">{{user.website}}</a></span>
+		<input ng-show="user.editMode" ng-model="user.website"/>
+	</p>
+
+	<button ng-hide="user.editMode" ng-click="edit(user)">Edit</button>
+	<button ng-show="user.editMode" ng-click="save(user)">Save</button>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#/view1">view1</a></li> <!-- Sem usar a controller -->
+    <li><a href="#/view2">view2</a></li> <!-- usando a controller (data-binding) -->
+    <li><a href="#/view3">view3</a></li> <!-- usando um array na controller e usando um ng-repeat -->
+    <li><a href="#/view4">view4</a></li> <!-- criando uma directive com template inline -->
+    <li><a href="#/view5">view5</a></li> <!-- directive com template externo e usando o restrict mode -->
+    <li><a href="#/view6">view6</a></li> <!-- criando um module para a directive para ser usado e N modules -->
+    <li><a href="#/view7">view7</a></li> <!-- Exemplo de segundo modulo usando a mesma directive -->
+    <li><a href="#/view8">view8</a></li> <!-- Isolando o Scope da Directive -->
+    <li><a href="#/view9">view9</a></li> <!-- Exemplo usando o Transclude -->
+    <li><a href="#/view10">view10</a></li> <!-- Usando a function link -->
+    <li><a href="#/view11">view11</a></li> <!-- directive que possui uma controller -->
+  </ul>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+  <div>Angular seed app: v<span app-version></span></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="view3/view3.js"></script>
+  <script src="view4/view4.js"></script>
+  <script src="view5/view5.js"></script>
+  <script src="view6/view6.js"></script>
+  <script src="view7/view7.js"></script>
+  <script src="view8/view8.js"></script>
+  <script src="view9/view9.js"></script>
+  <script src="view10/view10.js"></script>
+  <script src="view11/view11.js"></script>
+  <script src="components/jfc-card-profile/jfc-card-profile.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
