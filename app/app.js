@@ -14,6 +14,7 @@ angular.module('myApp', [
   'myApp.view9',
   'myApp.view10',
   'myApp.view11',
+  'myApp.view12',
   'myApp.version',
   'jfc'
 ]).

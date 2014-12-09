@@ -91,4 +91,64 @@ angular.module('jfc', ['ngRoute'])
 
 	    }
 	};
+}])
+
+.directive('jfcCardProfile6', [function(){
+	return {
+		restrict: 'E',
+		replace: false,
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile6.html',
+		scope: {
+			users: '=datas',
+			onSave: '&'
+		},
+		controller: function($scope) {
+
+			$scope.setModeDefault = function(){
+				for (var i = 0; i < $scope.users.length; i++) {
+					$scope.users[i].mode = 'view';
+				};
+			}
+
+	      	$scope.edit = function(user){
+				user.mode = 'edit';
+	      	}
+
+	      	$scope.save = function(user){
+	      		user.mode = 'view';
+	      		$scope.onSave({user: user});
+	      	}
+
+	    },
+	    link: function(scope, element, attrs, ctrl) {
+
+	    	scope.setModeDefault();
+
+	    }
+	};
+}])
+
+.directive('jfcCardProfile6Renderer', [function(){
+	return {
+		restrict: 'E',
+		replace: false,
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-renderer.html',
+		require: ['ˆjfcCardProfile6']
+	};
+}])
+
+.directive('jfcCardProfile6View', [function(){
+	return {
+		restrict: 'A',
+		replace: true,
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-view.html'
+	};
+}])
+
+.directive('jfcCardProfile6Edit', [function(){
+	return {
+		restrict: 'A',
+		replace: true,
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-edit.html'
+	};
 }]);
