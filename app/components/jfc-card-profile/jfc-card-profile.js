@@ -15,7 +15,7 @@ angular.module('jfc', ['ngRoute'])
 		replace: true,
 		templateUrl: 'components/jfc-card-profile/jfc-card-profile.html',
 		scope: {
-			users: '=datas'  
+			users: '='  
 		}
 	};
 }])
@@ -50,7 +50,7 @@ angular.module('jfc', ['ngRoute'])
 
 	      scope.save = function(user){
 	      	user.editMode = false;
-	      	scope.onSave({user: user});
+	      	scope.onSave({mamao: user});
 	      }
 
 	    }

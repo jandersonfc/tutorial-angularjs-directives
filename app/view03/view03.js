@@ -1,22 +1,22 @@
 'use strict';
 
-angular.module('myApp.view5', ['ngRoute'])
+angular.module('myApp.view03', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view5', {
-    templateUrl: 'view5/view5.html',
-    controller: 'View5Ctrl'
+  $routeProvider.when('/view03', {
+    templateUrl: 'view03/view03.html',
+    controller: 'View03Ctrl'
   });
 }])
 
-.directive('cardProfile', [function(){
+.directive('cardProfile2', [function(){
 	return {
-		restrict: 'E',
-		templateUrl: 'view5/card-profile.html'
+		restrict: 'EAC',
+		templateUrl: 'view03/card-profile.html'
 	};
 }])
 
-.controller('View5Ctrl', ['$scope', function($scope) {
+.controller('View03Ctrl', ['$scope', function($scope) {
 
 	$scope.users = [
 		{

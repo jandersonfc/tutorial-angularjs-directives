@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('myApp.view9', ['ngRoute'])
+angular.module('myApp.view06', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view9', {
-    templateUrl: 'view9/view9.html',
-    controller: 'View9Ctrl'
+  $routeProvider.when('/view06', {
+    templateUrl: 'view06/view06.html',
+    controller: 'View06Ctrl'
   });
 }])
 
-.controller('View9Ctrl', ['$scope', function($scope) {
+.controller('View06Ctrl', ['$scope', function($scope) {
 
-	$scope.count = 9;
+	$scope.count = 6;
 
 	$scope.users = [
 		{

@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view3', ['ngRoute'])
+angular.module('myApp.view09', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view3', {
-    templateUrl: 'view3/view3.html',
-    controller: 'View3Ctrl'
+  $routeProvider.when('/view09', {
+    templateUrl: 'view09/view09.html',
+    controller: 'View09Ctrl'
   });
 }])
 
-.controller('View3Ctrl', ['$scope', function($scope) {
+.controller('View09Ctrl', ['$scope', function($scope) {
 
 	$scope.users = [
 		{
@@ -23,5 +23,10 @@ angular.module('myApp.view3', ['ngRoute'])
 			website: 'http://jandersonfclube.com'
 		}
 	];
+
+	$scope.saveUser = function (user){
+		console.log('call resource for example');
+		console.log(user);
+	}
 
 }]);
