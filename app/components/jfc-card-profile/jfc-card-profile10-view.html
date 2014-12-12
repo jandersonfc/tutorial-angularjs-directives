@@ -1,15 +1,7 @@
 <div>
-	<p>
-		<h2 >{{user.name}}</h2>
-	</p>
+	<p><h2 >{{user.name}}</h2></p>
+	<p><span >Twitter: {{user.twitter}}</span></p>
+	<p><span >website: <a href="{{user.website}}">{{user.website}}</a></span></p>
 
-	<p>
-		<span >Twitter: {{user.twitter}}</span>
-	</p>
-
-	<p>
-		<span >website: <a href="{{user.website}}">{{user.website}}</a></span>
-	</p>
-
-	<button ng-click="edit(user)">Edit</button>
+	<button ng-click="edit()">Edit</button>
 </div>

@@ -50,7 +50,7 @@ angular.module('jfc', [])
 
 	      scope.save = function(user){
 	      	user.editMode = false;
-	      	scope.onSave({mamao: user});
+	      	scope.onSave({user: user});
 	      }
 
 	    }
@@ -93,24 +93,10 @@ angular.module('jfc', [])
 	};
 }])
 
-.controller('cardProfileController', ['$scope', '$attrs', function($scope, $attrs){
-
-	$scope.edit = function(){
-		$scope.user.mode = 'edit';
-  	}
-
-  	$scope.save = function(){
-  		$scope.user.mode = 'view';
-  		$scope.onSave({user: $scope.user});
-  	}
-
-}])
-
 .directive('jfcCardProfileList', function(){
 	return {
 		restrict: 'E',
 		replace: true,
-		require: 'jfcCardProfileList',
 		scope: {
 			users: '=datas',
 			onSave: '&'
@@ -119,15 +105,32 @@ angular.module('jfc', [])
 	};
 })
 
+.controller('cardProfileController', ['$scope', '$attrs', function($scope, $attrs){
+
+	this.setModeDefault = function(){
+		$scope.user.mode = 'view';
+  	}
+
+	this.edit = function(){
+		$scope.user.mode = 'edit';
+  	}
+
+  	this.save = function(){
+  		$scope.user.mode = 'view';
+  		$scope.onSave({user: $scope.user});
+  	}
+
+}])
+
 .directive('jfcCardProfile10Renderer', function(){
 	return {
 		restrict: 'E',
 		replace: false,
 		controller: 'cardProfileController',
 		templateUrl: 'components/jfc-card-profile/jfc-card-profile10-renderer.html',
-		link: function(scope, element, attrs) {
+		link: function(scope, element, attrs, ctrl) {
 	    	
-	    	scope.user.mode = 'view';
+	    	ctrl.setModeDefault();
 	    	
 	    }
 	};
@@ -141,7 +144,9 @@ angular.module('jfc', [])
 		require: '^jfcCardProfile10Renderer',
 		link: function(scope, element, attrs, ctrl) {
 	    	
-	    	console.log('VIEW');
+			scope.edit = function(){
+				ctrl.edit();
+			}
 	    	
 	    }
 	};
@@ -155,7 +160,9 @@ angular.module('jfc', [])
 		require: '^jfcCardProfile10Renderer',
 		link: function(scope, element, attrs, ctrl) {
 	    	
-	    	console.log('EDIT');
+	    	scope.save = function(){
+				ctrl.save();
+			}
 	    	
 	    }
 	};

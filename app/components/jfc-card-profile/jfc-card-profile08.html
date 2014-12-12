@@ -1,5 +1,4 @@
 <div ng-repeat="user in users">
-	
 	<p>
 		<h2 ng-hide="user.editMode">{{user.name}}</h2>
 		<input ng-show="user.editMode" ng-model="user.name"/>
