@@ -1,8 +1,10 @@
 <p>This is the partial for view 7.</p>
 <p>Exemplo usando o Transclude</p>
 <button ng-click="updateUsers()">Update Users</button>
-<jfc-card-profile3 datas="users">
-	<p>Isso é um teste para testar o transclude</p>
-	<h4>isso tudo vai parar dentro da directive, quer apostar?</h4>
-</jfc-card-profile3>
+<div ng-repeat="user in users">
+	<jfc-card-profile07 data="user">
+		<p>linkedin: <a href="{{user.linkedin}}">{{user.linkedin}}</a></p>
+		<p>facebook: <a href="{{user.facebook}}">{{user.facebook}}</a></p>
+	</jfc-card-profile07>
+ </div>
 

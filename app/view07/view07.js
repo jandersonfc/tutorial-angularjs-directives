@@ -17,11 +17,15 @@ angular.module('myApp.view07', ['ngRoute'])
 		{
 			name: 'Janderson Fernandes Cardoso',
 			twitter: '@jandersonfc',
+			linkedin: 'http://linkedin.com/jandersonfc',
+			facebook: 'http://facebook.com/jandersonfc',
 			website: 'http://jandersonfc.com'
 		},
 		{
 			name: 'Janderson Futebol Clube',
 			twitter: '@jandersonfclube',
+			linkedin: 'http://linkedin.com/jandersonfclube',
+			facebook: 'http://facebook.com/jandersonfclube',
 			website: 'http://jandersonfclube.com'
 		}
 	];
@@ -31,6 +35,8 @@ angular.module('myApp.view07', ['ngRoute'])
 		$scope.users.push({
 			name: 'Janderson ' + $scope.count,
 			twitter: '@janderson'  + $scope.count,
+			linkedin: 'http://likedin.com/janderson' + $scope.count,
+			facebook: 'http://facebook.com/janderson' + $scope.count,
 			website: 'http://janderson' + $scope.count +'.com'
 		});
 	};

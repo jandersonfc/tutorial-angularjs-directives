@@ -11,7 +11,7 @@ angular.module('myApp.view03', ['ngRoute'])
 
 .directive('cardProfile2', [function(){
 	return {
-		restrict: 'EAC',
+		restrict: 'E',
 		templateUrl: 'view03/card-profile.html'
 	};
 }])

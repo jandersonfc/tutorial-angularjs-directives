@@ -1,43 +1,43 @@
 'use strict';
 
-angular.module('jfc', ['ngRoute'])
+angular.module('jfc', [])
 
-.directive('jfcCardProfile1', [function(){
+.directive('jfcCardProfile04', [function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile.html'
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile04.html'
 	};
 }])
 
-.directive('jfcCardProfile2', [function(){
+.directive('jfcCardProfile06', [function(){
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile.html',
-		scope: {
-			users: '='  
-		}
-	};
-}])
-
-.directive('jfcCardProfile3', [function(){
-	return {
-		restrict: 'E',
-		replace: true,
-		transclude: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile-transclude.html',
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile04.html',
 		scope: {
 			users: '=datas'  
 		}
 	};
 }])
 
-.directive('jfcCardProfile4', [function(){
+.directive('jfcCardProfile07', [function(){
 	return {
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile-edit.html',
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile07.html',
+		scope: {
+			user: '=data'  
+		}
+	};
+}])
+
+.directive('jfcCardProfile08', [function(){
+	return {
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile08.html',
 		scope: {
 			users: '=datas',
 			onSave: '&'
@@ -57,12 +57,12 @@ angular.module('jfc', ['ngRoute'])
 	};
 }])
 
-.directive('jfcCardProfile5', [function(){
+.directive('jfcCardProfile09', [function(){
 	return {
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile-edit.html',
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile08.html',
 		scope: {
 			users: '=datas',
 			onSave: '&'
@@ -93,62 +93,70 @@ angular.module('jfc', ['ngRoute'])
 	};
 }])
 
-.directive('jfcCardProfile6', [function(){
+.controller('cardProfileController', ['$scope', '$attrs', function($scope, $attrs){
+
+	$scope.edit = function(){
+		$scope.user.mode = 'edit';
+  	}
+
+  	$scope.save = function(){
+  		$scope.user.mode = 'view';
+  		$scope.onSave({user: $scope.user});
+  	}
+
+}])
+
+.directive('jfcCardProfileList', function(){
 	return {
 		restrict: 'E',
-		replace: false,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile6.html',
+		replace: true,
+		require: 'jfcCardProfileList',
 		scope: {
 			users: '=datas',
 			onSave: '&'
 		},
-		controller: function($scope) {
-
-			$scope.setModeDefault = function(){
-				for (var i = 0; i < $scope.users.length; i++) {
-					$scope.users[i].mode = 'view';
-				};
-			}
-
-	      	$scope.edit = function(user){
-				user.mode = 'edit';
-	      	}
-
-	      	$scope.save = function(user){
-	      		user.mode = 'view';
-	      		$scope.onSave({user: user});
-	      	}
-
-	    },
-	    link: function(scope, element, attrs, ctrl) {
-
-	    	scope.setModeDefault();
-
-	    }
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile10-list.html'
 	};
-}])
+})
 
-.directive('jfcCardProfile6Renderer', [function(){
+.directive('jfcCardProfile10Renderer', function(){
 	return {
 		restrict: 'E',
 		replace: false,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-renderer.html',
-		require: ['ˆjfcCardProfile6']
+		controller: 'cardProfileController',
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile10-renderer.html',
+		link: function(scope, element, attrs) {
+	    	
+	    	scope.user.mode = 'view';
+	    	
+	    }
 	};
-}])
+})
 
-.directive('jfcCardProfile6View', [function(){
+.directive('jfcCardProfile10View', function(){
 	return {
-		restrict: 'A',
+		restrict: 'E',
 		replace: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-view.html'
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile10-view.html',
+		require: '^jfcCardProfile10Renderer',
+		link: function(scope, element, attrs, ctrl) {
+	    	
+	    	console.log('VIEW');
+	    	
+	    }
 	};
-}])
+})
 
-.directive('jfcCardProfile6Edit', [function(){
+.directive('jfcCardProfile10Edit', function(){
 	return {
-		restrict: 'A',
+		restrict: 'E',
 		replace: true,
-		templateUrl: 'components/jfc-card-profile/jfc-card-profile6-edit.html'
+		templateUrl: 'components/jfc-card-profile/jfc-card-profile10-edit.html',
+		require: '^jfcCardProfile10Renderer',
+		link: function(scope, element, attrs, ctrl) {
+	    	
+	    	console.log('EDIT');
+	    	
+	    }
 	};
-}]);
+});
